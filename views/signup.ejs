@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />	
+  </head>
+  <body>
+  <div class = "row">
+		<div class = "span8 offset2">
+ 			<form action="/signup" class="form-horizonatal well extrapaddingbottom" method="post" enctype="multipart/form-data" id="account-form-signup">
+ 			<legend><h4>Signup!</h4></legend>
+            <div class = "row">
+            	<div class = "extrabottom">
+	            	<div class = "span3">
+			                <label for="handle" class="stripeLabel">My Handle</label>
+			                <input type="text" name="handle" class="required" />
+			                <span id="msgbox" style="display:none"></span>
+							<label for="email">My Email</label>
+							<input type="text" name="email" class="required email" />
+					</div>
+					<div class = "span3 offset1">
+			                <label for="password1" class="passwordLabel">My Password</label>
+			                <input id="password1" type="password" name="password1" class="required password" />   
+			                <label for="password2" class="passwordLabel">Confirm Password</label>
+			                <input type="password" name="password2" equalTo="#password1" class="required" />
+			        </div>   
+		        </div>  
+            </div>
+        	<div class ="span2 offset6 extrapaddingbottom">
+	            <button type="submit" name="submit-button">Submit</button>
+	            <span class="payment-errors"></span>
+        	</div>
+
+        </form>
+        </div>
+        </div>
+      	</div>
+	</body>
+
+	    <script type="text/javascript">
+            $(document).ready(function() {
+            	$("#account-form-signup").validate();
+
+            });
+
+
+
+	    </script>
+</html>
+
+	
