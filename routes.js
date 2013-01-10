@@ -4,22 +4,13 @@ var passport = require('passport')
 
 module.exports = function (app){
 
-
-
-
 	function ensureAuthenticated(req, res, next) {
 	  if (req.isAuthenticated()) { return next(); }
 	  res.redirect('/')
 	}
 
 
-
-
-
-
-
 //------------------Index-----------------------
-
 
 	app.get('/', function (req, res) {
 		res.render('index', {
@@ -33,22 +24,13 @@ module.exports = function (app){
 	  res.redirect('/');
 	});
 
-
-
 //-------------------Login------------------------
-
-
-
 
 	app.get('/login', function (req, res) {
 		res.render('login', {
 								title: 'Login'
 							});
 	});
-
-
-
-
 
 	app.post('/login', passport.authenticate('local'), 
 		function (req, res) {
@@ -68,22 +50,13 @@ module.exports = function (app){
 			});
 	});
 
-
-
 //--------------------Signup-----------------------
-
-
-
 
 	app.get('/signup', ensureAuthenticated, function (req, res) {
 		res.render('signup', {
 								title: 'Signup'
 							});
 	})
-
-
-
-
 
 	app.post('/signup', function (req, res) {
 
@@ -109,15 +82,11 @@ module.exports = function (app){
 
 	})
 
-
-
 //--------------------Oauth--------------------------
 
 
 app.get('/auth/twitter',
   passport.authenticate('twitter'));
-
-
 
 
 app.get('/auth/twitter/callback', 
@@ -131,18 +100,8 @@ app.get('/auth/twitter/callback',
 //--------------------Account----------------------------
 
 
-
 app.get('/account', ensureAuthenticated, function(req, res) {
 	res.render('account');
 })
-
-
-
-
-
-
-
-
-
 
 }
